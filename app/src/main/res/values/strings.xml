@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">HackPay</string>
+    <string name="action_settings">Settings</string>
+    <string name="activity_qr_desc">Scan QR Code to pay</string>
+    <string name="title_activity_scanner">ScannerActivity</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="dialog_payment_title">Payment Details</string>
+    <string name="dialog_payment_method">Payment Method</string>
+    <string name="total">Total</string>
+    <string name="dialog_amount_details">Amount Details</string>
+    <string name="result_complete">Payment Succeed</string>
+</resources>
