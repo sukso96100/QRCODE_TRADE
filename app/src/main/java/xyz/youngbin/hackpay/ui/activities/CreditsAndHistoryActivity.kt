@@ -14,8 +14,11 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_credits_and_history.*
 import kotlinx.android.synthetic.main.layout_listview_only.*
 import kotlinx.android.synthetic.main.list_header_credits.view.*
+import kotlinx.android.synthetic.main.list_item_amount.*
 import xyz.youngbin.hackpay.R
+import xyz.youngbin.hackpay.ui.adapter.AmountItem
 import xyz.youngbin.hackpay.ui.adapter.AmountItemAdapter
+import xyz.youngbin.hackpay.ui.dialogs.HistoryDetailsDialog
 
 class CreditsAndHistoryActivity : AppCompatActivity() {
 
@@ -25,11 +28,18 @@ class CreditsAndHistoryActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
+        val amountDetails = ArrayList<AmountItem>()
+        amountDetails.add(AmountItem("Hello", 50.0))
+        amountDetails.add(AmountItem("World", 50.0))
+
         val history = ArrayList<HistoryItem>()
-        history.add(HistoryItem("구내식당", "2017-11-23", -4200.0))
-        history.add(HistoryItem("구내식당", "2017-11-23", -4200.0))
-        history.add(HistoryItem("구내식당", "2017-11-23", -4200.0))
-        history.add(HistoryItem("편의점", "2017-11-23", -3520.0))
+
+        // Example Data
+
+        history.add(HistoryItem("구내식당", "2017-11-23", -4200.0, "cash"))
+        history.add(HistoryItem("구내식당", "2017-11-23", -4200.0, "cash"))
+        history.add(HistoryItem("구내식당", "2017-11-23", -4200.0, "cash"))
+        history.add(HistoryItem("편의점", "2017-11-23", -3520.0, "cash"))
         val adapter = HistoryItemAdapter(history, this)
         listView.adapter = adapter
 
@@ -46,11 +56,17 @@ class CreditsAndHistoryActivity : AppCompatActivity() {
         listView.addHeaderView(header, null, false)
         listView.setOnItemClickListener{
             parent: AdapterView<*>?, view: View?, position: Int, id: Long ->
-            
+            val pos = position-1
+            val dialog = HistoryDetailsDialog.newInstance(
+                    history[pos].title, history[pos].method,
+                    history[pos].amount, history[pos].datetime,
+                    amountDetails
+            )
+            dialog.show(supportFragmentManager, "history-details")
         }
     }
 
-    data class HistoryItem(var title: String, var datetime: String, var amount: Double)
+    data class HistoryItem(var title: String, var datetime: String, var amount: Double, var method: String)
     class HistoryItemAdapter(data: ArrayList<HistoryItem>, context: Context) : BaseAdapter(){
         private val data: ArrayList<HistoryItem>
         private val context: Context
