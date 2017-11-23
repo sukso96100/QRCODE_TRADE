@@ -59,4 +59,5 @@
                 android:padding="8dp"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
+
 </LinearLayout>
