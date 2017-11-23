@@ -8,12 +8,14 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.BaseAdapter
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_credits_and_history.*
-import kotlinx.android.synthetic.main.content_credits_and_history.*
+import kotlinx.android.synthetic.main.layout_listview_only.*
 import kotlinx.android.synthetic.main.list_header_credits.view.*
 import xyz.youngbin.hackpay.R
+import xyz.youngbin.hackpay.ui.adapter.AmountItemAdapter
 
 class CreditsAndHistoryActivity : AppCompatActivity() {
 
@@ -42,6 +44,10 @@ class CreditsAndHistoryActivity : AppCompatActivity() {
             // 환급 버튼 동작
         }
         listView.addHeaderView(header, null, false)
+        listView.setOnItemClickListener{
+            parent: AdapterView<*>?, view: View?, position: Int, id: Long ->
+            
+        }
     }
 
     data class HistoryItem(var title: String, var datetime: String, var amount: Double)

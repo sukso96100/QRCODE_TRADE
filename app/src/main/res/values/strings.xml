@@ -27,4 +27,5 @@
     <string name="activity_main_pay">지금 결제</string>
     <string name="credits_charge">충전</string>
     <string name="credits_refund">환급</string>
+    <string name="payment_datetime">결제 시각</string>
 </resources>
