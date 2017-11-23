@@ -11,7 +11,6 @@ import android.widget.BaseAdapter
 import android.widget.Toast
 import kotlinx.android.synthetic.main.list_item_seller_product.view.*
 import org.json.JSONArray
-import org.json.JSONObject
 import xyz.youngbin.hackpay.HPAPI
 import xyz.youngbin.hackpay.R
 import kotlin.concurrent.thread
@@ -28,7 +27,6 @@ class SellerProductListActivity : ListActivity() {
 
     private fun loadData() {
         thread {
-            //val body = JSONObject(mapOf("name" to id, "password" to password))
             val r = HPAPI.get("/product", mapOf("seller_id" to "${HPAPI.seller_id!!}"))
 
             runOnUiThread {
