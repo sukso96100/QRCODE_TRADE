@@ -1,6 +1,7 @@
 package xyz.youngbin.hackpay.ui.activities
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.NavUtils
 import android.support.v7.app.AppCompatActivity
@@ -47,11 +48,8 @@ class CreditsAndHistoryActivity : AppCompatActivity() {
         val header: ViewGroup = inflator.inflate(R.layout.list_header_credits,null) as ViewGroup
         header.balance.text = "100000 KRW"
         header.charge.setOnClickListener {
-            // 충전 버튼 동작
-
-        }
-        header.refund.setOnClickListener {
-            // 환급 버튼 동작
+            // 충전/환급 버튼 동작
+            startActivity(Intent(this, ChargeOrRefundActivity::class.java))
         }
         listView.addHeaderView(header, null, false)
         listView.setOnItemClickListener{

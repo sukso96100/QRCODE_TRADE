@@ -15,27 +15,13 @@
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Display1"
         android:layout_margin="16dp"
         android:textColor="@android:color/white"/>
-    <LinearLayout
+    <Button
+        android:id="@+id/charge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="8dp">
-        <Button
-            android:id="@+id/charge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/credits_charge"
-            android:background="?android:selectableItemBackground"
-            android:textColor="@android:color/white"
-            android:layout_margin="8dp"/>
-        <Button
-            android:id="@+id/refund"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/credits_refund"
-            android:background="?android:selectableItemBackground"
-            android:textColor="@android:color/white"
-            android:layout_margin="8dp"/>
-    </LinearLayout>
+        android:text="@string/credits_charge_or_refund"
+        android:background="?android:selectableItemBackground"
+        android:textColor="@android:color/white"
+        android:layout_margin="8dp"
+        android:layout_gravity="center_horizontal"/>
 </LinearLayout>
