@@ -40,4 +40,5 @@ dependencies {
     implementation('com.github.jkcclemens:khttp:0.1.0') {
         exclude group: 'org.json', module: 'json'
     }
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 }

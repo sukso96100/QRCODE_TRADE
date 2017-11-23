@@ -3,13 +3,18 @@ package xyz.youngbin.hackpay.ui.activities.seller
 import android.app.Activity
 import android.os.Bundle
 import android.view.MenuItem
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_seller_payment_wait.*
 import xyz.youngbin.hackpay.R
 
 class SellerPaymentWaitActivity: Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_payment_wait)
+        setContentView(R.layout.activity_seller_payment_wait)
         actionBar.setDisplayHomeAsUpEnabled(true)
+
+        val qr_url = intent.getStringExtra("qr_url")
+        Picasso.with(this).load(qr_url).into(imageView)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {

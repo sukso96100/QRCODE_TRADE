@@ -11,7 +11,7 @@ import android.widget.BaseAdapter
 import android.widget.Toast
 import kotlinx.android.synthetic.main.list_item_seller_product.view.*
 import org.json.JSONArray
-import network.HPAPI
+import xyz.youngbin.hackpay.network.HPAPI
 import xyz.youngbin.hackpay.R
 import kotlin.concurrent.thread
 
@@ -21,13 +21,16 @@ class SellerProductListActivity : ListActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         actionBar.setDisplayHomeAsUpEnabled(true)
+        loadData()
+    }
 
+    override fun onResume() {
+        super.onResume()
         loadData()
     }
 
     private fun loadData() {
         thread {
-            //val body = JSONObject(mapOf("name" to id, "password" to password))
             val r = HPAPI.get("/product", mapOf("seller_id" to "${HPAPI.seller_id!!}"))
 
             runOnUiThread {
