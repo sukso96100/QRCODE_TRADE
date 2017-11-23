@@ -19,12 +19,13 @@ class CreditsAndHistoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_credits_and_history)
         setSupportActionBar(toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         val history = ArrayList<HistoryItem>()
-        history.add(HistoryItem("구내식당", "2017-11-23", 4200.0))
-        history.add(HistoryItem("구내식당", "2017-11-23", 4200.0))
-        history.add(HistoryItem("구내식당", "2017-11-23", 4200.0))
-        history.add(HistoryItem("편의점", "2017-11-23", 3520.0))
+        history.add(HistoryItem("구내식당", "2017-11-23", -4200.0))
+        history.add(HistoryItem("구내식당", "2017-11-23", -4200.0))
+        history.add(HistoryItem("구내식당", "2017-11-23", -4200.0))
+        history.add(HistoryItem("편의점", "2017-11-23", -3520.0))
         val adapter = HistoryItemAdapter(history, this)
         listView.adapter = adapter
 

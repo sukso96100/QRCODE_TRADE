@@ -42,6 +42,9 @@
             android:name=".ui.activities.CreditsAndHistoryActivity"
             android:label="@string/activity_main_credits"
             android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="andorid.support.PARENT_ACTIVITY"
+                android:value="xyz.youngbin.hackpay.ui.activities.MainActivity"/>
         </activity>
     </application>
 
