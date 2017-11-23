@@ -32,6 +32,13 @@
         </activity>
 
         <activity android:name=".ui.activities.LoginActivity"></activity>
+
+        <activity android:name=".ui.activities.PincodeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
+        <activity android:name=".ui.activities.PaymentActivity"></activity>
     </application>
 
 </manifest>
