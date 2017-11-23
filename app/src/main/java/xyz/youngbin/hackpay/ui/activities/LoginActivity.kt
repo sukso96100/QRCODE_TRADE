@@ -14,7 +14,7 @@ import android.view.inputmethod.InputMethodManager
 import xyz.youngbin.hackpay.R
 import kotlinx.android.synthetic.main.activity_login.*
 import org.json.JSONObject
-import network.HPAPI
+import xyz.youngbin.hackpay.network.HPAPI
 import kotlin.concurrent.thread
 
 class LoginActivity : AppCompatActivity() {

@@ -17,7 +17,7 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_credits_and_history.*
 import kotlinx.android.synthetic.main.layout_listview_only.*
 import kotlinx.android.synthetic.main.list_header_credits.view.*
-import network.HPAPI
+import xyz.youngbin.hackpay.network.HPAPI
 import org.json.JSONArray
 import xyz.youngbin.hackpay.R
 import xyz.youngbin.hackpay.ui.adapter.AmountItem

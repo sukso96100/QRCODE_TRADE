@@ -7,7 +7,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_seller_product_add.*
 import org.json.JSONObject
-import xyz.youngbin.hackpay.HPAPI
+import xyz.youngbin.hackpay.network.HPAPI
 import xyz.youngbin.hackpay.R
 import kotlin.concurrent.thread
 

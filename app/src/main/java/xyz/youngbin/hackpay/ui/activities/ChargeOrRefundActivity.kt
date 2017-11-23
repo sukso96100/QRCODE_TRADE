@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_charge_or_refund.*
-import network.HPAPI
+import xyz.youngbin.hackpay.network.HPAPI
 import org.json.JSONObject
 import xyz.youngbin.hackpay.R
 import kotlin.concurrent.thread

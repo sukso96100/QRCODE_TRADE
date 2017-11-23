@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.dialog_payment.*
 import kotlinx.android.synthetic.main.list_item_seller_request_product.view.*
 import org.json.JSONArray
 import org.json.JSONObject
-import xyz.youngbin.hackpay.HPAPI
+import xyz.youngbin.hackpay.network.HPAPI
 import xyz.youngbin.hackpay.R
 import kotlin.concurrent.thread
 
