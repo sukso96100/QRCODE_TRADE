@@ -21,7 +21,11 @@ class SellerProductListActivity : ListActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         actionBar.setDisplayHomeAsUpEnabled(true)
+        loadData()
+    }
 
+    override fun onResume() {
+        super.onResume()
         loadData()
     }
 
