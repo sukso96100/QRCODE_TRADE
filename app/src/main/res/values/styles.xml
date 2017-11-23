@@ -23,4 +23,11 @@
         <item name="android:windowBackground">@drawable/splash</item>
     </style>
 
+    <style name="cActionBar" parent="@android:style/Widget.Material.Light.ActionBar.Solid">
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+    <style name="NavAppTheme" parent="android:Theme.Material.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/cActionBar</item>
+        <item name="android:colorEdgeEffect">@color/colorPrimary</item>
+    </style>
 </resources>

@@ -8,7 +8,9 @@ import android.view.Menu
 import android.view.MenuItem
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 import xyz.youngbin.hackpay.R
+import xyz.youngbin.hackpay.ui.activities.seller.SellerProductList
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,12 +19,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+        payment.setOnClickListener{
             startActivity(Intent(this, ScannerActivity::class.java))
-
         }
+        credits.setOnClickListener {
+            startActivity(Intent(this, CreditsAndHistoryActivity::class.java))
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
