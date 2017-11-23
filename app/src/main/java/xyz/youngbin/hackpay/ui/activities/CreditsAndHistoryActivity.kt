@@ -68,24 +68,14 @@ class CreditsAndHistoryActivity : AppCompatActivity() {
     class HistoryItemAdapter(data: ArrayList<HistoryItem>, context: Context) : BaseAdapter(){
         private val data: ArrayList<HistoryItem>
         private val context: Context
-
         init {
             this.data = data
             this.context = context
         }
 
-
-        override fun getCount(): Int {
-            return this.data.size
-        }
-
-        override fun getItemId(position: Int): Long {
-            return 0
-        }
-
-        override fun getItem(position: Int): Any {
-            return this.data[position]
-        }
+        override fun getCount(): Int =this.data.size
+        override fun getItemId(position: Int): Long = position.toLong()
+        override fun getItem(position: Int): Any = this.data[position]
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
             val view: View

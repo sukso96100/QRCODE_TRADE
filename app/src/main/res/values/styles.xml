@@ -27,8 +27,4 @@
         <item name="android:actionBarStyle">@style/cActionBar</item>
         <item name="android:colorEdgeEffect">@color/colorPrimary</item>
     </style>
-    <style name="NavAppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
 </resources>
