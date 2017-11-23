@@ -19,17 +19,16 @@
             android:name=".ui.activities.ScannerActivity"
             android:label="@string/title_activity_scanner"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.activities.ResultActivity" />
+        <activity android:name=".ui.activities.ResultActivity"
+            android:theme="@style/NavAppTheme"/>
         <activity
             android:name=".ui.activities.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".ui.activities.seller.SellerProductList"
             android:label="상품 목록"
             android:theme="@style/NavAppTheme" />
@@ -46,13 +45,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.activities.MainActivity"/>
         </activity>
-
         <activity android:name=".ui.activities.PincodeActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-
-        <activity android:name=".ui.activities.PaymentActivity"></activity>
+            android:theme="@style/NavAppTheme.NoActionBar" />
+        <activity android:name=".ui.activities.PaymentActivity"
+            android:theme="@style/NavAppTheme" />
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package xyz.youngbin.hackpay.ui.activities;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +16,7 @@ import xyz.youngbin.hackpay.R;
  * Created by ping2 on 2017-11-23.
  */
 
-public class PincodeActivity extends AppCompatActivity {
+public class PincodeActivity extends Activity {
 
     public static final String TAG = "PinLockView";
 
