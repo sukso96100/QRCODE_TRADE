@@ -1,15 +1,15 @@
-package xyz.youngbin.hackpay
+package xyz.youngbin.hackpay.ui.activities
 
 import android.content.DialogInterface
 import android.os.Bundle
-import android.support.design.widget.BottomSheetDialog
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.google.zxing.Result
 
 import kotlinx.android.synthetic.main.activity_scanner.*
 import me.dm7.barcodescanner.zxing.ZXingScannerView
+import xyz.youngbin.hackpay.R
+import xyz.youngbin.hackpay.ui.dialogs.ConfirmationDialog
 
 class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler, DialogInterface.OnDismissListener{
 

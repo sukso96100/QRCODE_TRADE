@@ -1,8 +1,9 @@
-package xyz.youngbin.hackpay
+package xyz.youngbin.hackpay.ui.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_result.*
+import xyz.youngbin.hackpay.R
 
 class ResultActivity : AppCompatActivity() {
 

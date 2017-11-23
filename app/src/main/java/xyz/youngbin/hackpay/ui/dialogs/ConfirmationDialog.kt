@@ -1,4 +1,4 @@
-package xyz.youngbin.hackpay
+package xyz.youngbin.hackpay.ui.dialogs
 
 import android.app.Dialog
 import android.content.DialogInterface
@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.support.design.widget.BottomSheetDialog
 import android.support.design.widget.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.dialog_payment.*
+import xyz.youngbin.hackpay.R
+import xyz.youngbin.hackpay.ui.activities.ResultActivity
 
 /**
  * Created by youngbin on 2017. 11. 22..
@@ -14,7 +16,7 @@ import kotlinx.android.synthetic.main.dialog_payment.*
 class ConfirmationDialog : BottomSheetDialogFragment() {
 
     companion object {
-        fun newInstance(seller: String, method: String, total: Double): ConfirmationDialog{
+        fun newInstance(seller: String, method: String, total: Double): ConfirmationDialog {
             val dialog = ConfirmationDialog()
             val args = Bundle()
             args.putString("seller",seller)

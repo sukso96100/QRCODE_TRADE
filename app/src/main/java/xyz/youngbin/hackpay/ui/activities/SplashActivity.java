@@ -1,9 +1,11 @@
-package xyz.youngbin.hackpay;
+package xyz.youngbin.hackpay.ui.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+
+import xyz.youngbin.hackpay.R;
 
 /**
  * Created by ping2 on 2017-11-22.
