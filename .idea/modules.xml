@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HackPay.iml" filepath="$PROJECT_DIR$/HackPay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/QRCODE_TRADE.iml" filepath="$PROJECT_DIR$/QRCODE_TRADE.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -9,4 +9,17 @@
     <string name="total">Total</string>
     <string name="dialog_amount_details">Amount Details</string>
     <string name="result_complete">Payment Succeed</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_id">아이디</string>
+    <string name="prompt_password">비밀번호 </string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">로그인</string>
+    <string name="error_invalid_email">아이디가 너무 짧습니다.</string>
+    <string name="error_invalid_password">패스워드가 너무 짧습니다.</string>
+    <string name="error_incorrect_password">패스워드가 일치하지 않습니다.</string>
+    <string name="error_field_required">아이디를 입력하세요</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
 </resources>
