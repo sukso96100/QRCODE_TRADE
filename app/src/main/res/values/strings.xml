@@ -19,6 +19,8 @@
     <string name="error_invalid_password">패스워드가 너무 짧습니다.</string>
     <string name="error_incorrect_password">패스워드가 일치하지 않습니다.</string>
     <string name="error_field_required">아이디를 입력하세요</string>
+    <string name="error_network">네트워크 연결을 확인해주세요.</string>
+    <string name="error_api_etc">서버 응답 오류</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
