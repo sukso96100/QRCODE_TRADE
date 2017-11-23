@@ -1,11 +1,12 @@
 package xyz.youngbin.hackpay.ui.activities
 
+import android.app.Activity
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_result.*
 import xyz.youngbin.hackpay.R
 
-class ResultActivity : AppCompatActivity() {
+class ResultActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

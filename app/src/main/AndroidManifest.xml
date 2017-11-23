@@ -28,7 +28,8 @@
             android:name=".ui.activities.ScannerActivity"
             android:label="@string/title_activity_scanner"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.activities.ResultActivity" />
+        <activity android:name=".ui.activities.ResultActivity"
+            android:theme="@style/NavAppTheme"/>
 
 
         <activity android:name=".ui.activities.seller.SellerProductListActivity"
@@ -50,9 +51,13 @@
             android:label="@string/activity_main_credits"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
-                android:name="andorid.support.PARENT_ACTIVITY"
-                android:value="xyz.youngbin.hackpay.ui.activities.MainActivity"/>
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activities.MainActivity"/>
         </activity>
+        <activity android:name=".ui.activities.PincodeActivity"
+            android:theme="@style/NavAppTheme.NoActionBar" />
+        <activity android:name=".ui.activities.PaymentActivity"
+            android:theme="@style/NavAppTheme" />
     </application>
 
 </manifest>
