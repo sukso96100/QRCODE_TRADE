@@ -2,15 +2,18 @@ package xyz.youngbin.hackpay.ui.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import com.gun0912.tedpermission.PermissionListener
+import com.gun0912.tedpermission.TedPermission
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import xyz.youngbin.hackpay.R
-import xyz.youngbin.hackpay.ui.activities.seller.SellerProductList
+import xyz.youngbin.hackpay.ui.activities.seller.SellerProductListActivity
+import xyz.youngbin.hackpay.ui.activities.seller.SellerRequestPaymentActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,10 +23,29 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         payment.setOnClickListener{
-            startActivity(Intent(this, ScannerActivity::class.java))
+            val permissions = listOf(android.Manifest.permission.CAMERA)
+            val listener = object : PermissionListener {
+                override fun onPermissionGranted() {
+                    startActivity(Intent(this@MainActivity, ScannerActivity::class.java))
+                }
+                override fun onPermissionDenied(deniedPermissions: ArrayList<String>) {
+                    Toast.makeText(this@MainActivity, "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show()
+                }
+            }
+            TedPermission.with(this)
+                    .setPermissionListener(listener)
+                    .setDeniedMessage("시스템 설정에서 어플리케이션 권한을 허용해주세요.")
+                    .setPermissions(*permissions.toTypedArray())
+                    .check()
         }
         credits.setOnClickListener {
             startActivity(Intent(this, CreditsAndHistoryActivity::class.java))
+        }
+        store.setOnClickListener {
+            startActivity(Intent(this, SellerProductListActivity::class.java))
+        }
+        storeReqProduct.setOnClickListener {
+            startActivity(Intent(this, SellerRequestPaymentActivity::class.java))
         }
 
     }

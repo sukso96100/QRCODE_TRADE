@@ -15,6 +15,7 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler, Dia
 
 
     override fun onDismiss(dialog: DialogInterface?) {
+        mScannerView.setResultHandler(this)
         mScannerView.startCamera()
     }
 
