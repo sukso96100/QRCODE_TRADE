@@ -28,7 +28,7 @@
         <activity
             android:name=".ui.activities.ScannerActivity"
             android:label="@string/title_activity_scanner"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" />asdfasdf
         <activity android:name=".ui.activities.PaymentActivity"
             android:theme="@style/NavAppTheme" />
         <activity android:name=".ui.activities.PincodeActivity"
