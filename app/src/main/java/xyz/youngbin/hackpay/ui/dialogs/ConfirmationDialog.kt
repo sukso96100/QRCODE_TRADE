@@ -8,6 +8,8 @@ import android.support.design.widget.BottomSheetDialog
 import android.support.design.widget.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.dialog_payment.*
 import xyz.youngbin.hackpay.R
+import xyz.youngbin.hackpay.ui.activities.PaymentActivity
+import xyz.youngbin.hackpay.ui.activities.PincodeActivity
 import xyz.youngbin.hackpay.ui.activities.ResultActivity
 
 /**
@@ -34,7 +36,7 @@ class ConfirmationDialog : BottomSheetDialogFragment() {
         dialog.method.text = arguments.getString("method")
         dialog.total.text = arguments.getDouble("total").toString()
         dialog.confirm.setOnClickListener{
-            val paymentIntent = Intent(activity, ResultActivity::class.java)
+            val paymentIntent = Intent(activity, PaymentActivity::class.java)
             paymentIntent.putExtra("seller",arguments.getString("seller"))
             paymentIntent.putExtra("method",arguments.getString("method"))
             paymentIntent.putExtra("total",arguments.getDouble("total"))

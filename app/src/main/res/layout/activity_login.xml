@@ -38,12 +38,12 @@
             android:weightSum="1">
 
             <RelativeLayout
-                android:layout_width="373dp"
+                android:layout_width="match_parent"
                 android:layout_height="304dp">
 
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="301dp"
+                    android:layout_width="match_parent"
                     android:layout_height="182dp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"

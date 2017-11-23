@@ -12,15 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.activities.MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".ui.activities.ScannerActivity"
-            android:label="@string/title_activity_scanner"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.activities.ResultActivity" />
-        <activity
             android:name=".ui.activities.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -29,15 +20,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".ui.activities.seller.SellerProductList"
-            android:label="상품 목록"
-            android:theme="@style/NavAppTheme" />
-        <activity android:name=".ui.activities.seller.SellerProductAdd"
-            android:label="상품 추가"
-            android:theme="@style/NavAppTheme" />
-
         <activity android:name=".ui.activities.LoginActivity" />
+        <activity
+            android:name=".ui.activities.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activities.ScannerActivity"
+            android:label="@string/title_activity_scanner"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.activities.PaymentActivity"
+            android:theme="@style/NavAppTheme" />
+        <activity android:name=".ui.activities.PincodeActivity"
+            android:theme="@style/NavAppTheme.NoActionBar" />
+        <activity android:name=".ui.activities.ResultActivity"
+            android:theme="@style/NavAppTheme"/>
         <activity
             android:name=".ui.activities.CreditsAndHistoryActivity"
             android:label="@string/activity_main_credits"
@@ -46,6 +43,20 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.activities.MainActivity"/>
         </activity>
+
+
+        <activity android:name=".ui.activities.seller.SellerProductListActivity"
+            android:label="상품 목록"
+            android:theme="@style/NavAppTheme" />
+        <activity android:name=".ui.activities.seller.SellerProductAddActivity"
+            android:label="상품 추가"
+            android:theme="@style/NavAppTheme" />
+        <activity android:name=".ui.activities.seller.SellerRequestPaymentActivity"
+            android:label="결제 요청"
+            android:theme="@style/NavAppTheme" />
+        <activity android:name=".ui.activities.seller.SellerPaymentWaitActivity"
+            android:label="결제 대기"
+            android:theme="@style/NavAppTheme" />
     </application>
 
 </manifest>

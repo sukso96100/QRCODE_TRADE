@@ -11,7 +11,7 @@ import android.widget.BaseAdapter
 import kotlinx.android.synthetic.main.list_item_seller_product.view.*
 import xyz.youngbin.hackpay.R
 
-class SellerProductList: ListActivity() {
+class SellerProductListActivity : ListActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         actionBar.setDisplayHomeAsUpEnabled(true)
@@ -19,8 +19,23 @@ class SellerProductList: ListActivity() {
         listView.adapter = ProductListAdapter()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_seller_product_list, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            android.R.id.home -> onBackPressed()
+            R.id.action_add -> {
+                startActivity(Intent(this, SellerProductAddActivity::class.java))
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
     inner class ProductListAdapter: BaseAdapter() {
-        private val mInflater = this@SellerProductList.layoutInflater
+        private val mInflater = this@SellerProductListActivity.layoutInflater
         override fun getCount(): Int = 5
         override fun getItem(position: Int): Any? = null
         override fun getItemId(position: Int): Long = position.toLong()
@@ -33,20 +48,5 @@ class SellerProductList: ListActivity() {
 
             return convertView
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_seller_product_list, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
-            android.R.id.home -> onBackPressed()
-            R.id.action_add -> {
-                startActivity(Intent(this, SellerProductAdd::class.java))
-            }
-        }
-        return super.onOptionsItemSelected(item)
     }
 }
