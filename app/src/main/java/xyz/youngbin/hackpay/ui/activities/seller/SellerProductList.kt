@@ -1,7 +1,10 @@
 package xyz.youngbin.hackpay.ui.activities.seller
 
 import android.app.ListActivity
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
@@ -11,6 +14,8 @@ import xyz.youngbin.hackpay.R
 class SellerProductList: ListActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        actionBar.setDisplayHomeAsUpEnabled(true)
+
         listView.adapter = ProductListAdapter()
     }
 
@@ -28,5 +33,20 @@ class SellerProductList: ListActivity() {
 
             return convertView
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_seller_product_list, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            android.R.id.home -> onBackPressed()
+            R.id.action_add -> {
+                startActivity(Intent(this, SellerProductAdd::class.java))
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

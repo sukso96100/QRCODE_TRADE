@@ -9,6 +9,7 @@ import android.view.MenuItem
 
 import kotlinx.android.synthetic.main.activity_main.*
 import xyz.youngbin.hackpay.R
+import xyz.youngbin.hackpay.ui.activities.seller.SellerProductList
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
-            startActivity(Intent(this, ScannerActivity::class.java))
+            startActivity(Intent(this, SellerProductList::class.java))
 
         }
     }

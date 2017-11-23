@@ -22,4 +22,6 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <string name="action_product_add">상품 추가</string>
 </resources>

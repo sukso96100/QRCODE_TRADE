@@ -32,6 +32,12 @@
         </activity>
 
         <activity android:name=".ui.activities.LoginActivity"></activity>
+        <activity android:name=".ui.activities.seller.SellerProductList"
+            android:label="상품 목록"
+            android:theme="@style/NavAppTheme" />
+        <activity android:name=".ui.activities.seller.SellerProductAdd"
+            android:label="상품 추가"
+            android:theme="@style/NavAppTheme" />
     </application>
 
 </manifest>
