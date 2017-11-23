@@ -15,14 +15,14 @@ import xyz.youngbin.hackpay.ui.adapter.AmountItemAdapter
  */
 class HistoryDetailsDialog: BottomSheetDialogFragment() {
     companion object {
-        fun newInstance(seller: String, method: String, total: Double,
+        fun newInstance(seller: String, method: String, total: Int,
                         datetime: String, details: ArrayList<AmountItem>): HistoryDetailsDialog {
             val dialog = HistoryDetailsDialog()
             val args = Bundle()
             args.putString("seller",seller)
             args.putString("method",method)
             args.putString("datetime", datetime)
-            args.putDouble("total",total)
+            args.putInt("total",total)
             args.putParcelableArrayList("details", details)
             dialog.arguments = args
             return dialog
