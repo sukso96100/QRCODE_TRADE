@@ -15,7 +15,6 @@ import kotlinx.android.synthetic.main.activity_credits_and_history.*
 import kotlinx.android.synthetic.main.layout_listview_only.*
 import kotlinx.android.synthetic.main.list_header_credits.view.*
 import xyz.youngbin.hackpay.R
-import xyz.youngbin.hackpay.ui.adapter.AmountItemAdapter
 
 class CreditsAndHistoryActivity : AppCompatActivity() {
 
@@ -28,6 +27,10 @@ class CreditsAndHistoryActivity : AppCompatActivity() {
         val history = ArrayList<HistoryItem>()
         history.add(HistoryItem("구내식당", "2017-11-23", -4200.0))
         history.add(HistoryItem("구내식당", "2017-11-23", -4200.0))
+        history.add(HistoryItem("구내식당", "2017-11-23", -4200.0))
+        history.add(HistoryItem("편의점", "2017-11-23", -3520.0))
+        history.add(HistoryItem("구내식당", "2017-11-23", -4200.0))
+        history.add(HistoryItem("편의점", "2017-11-23", -3520.0))
         history.add(HistoryItem("구내식당", "2017-11-23", -4200.0))
         history.add(HistoryItem("편의점", "2017-11-23", -3520.0))
         val adapter = HistoryItemAdapter(history, this)
@@ -54,24 +57,14 @@ class CreditsAndHistoryActivity : AppCompatActivity() {
     class HistoryItemAdapter(data: ArrayList<HistoryItem>, context: Context) : BaseAdapter(){
         private val data: ArrayList<HistoryItem>
         private val context: Context
-
         init {
             this.data = data
             this.context = context
         }
 
-
-        override fun getCount(): Int {
-            return this.data.size
-        }
-
-        override fun getItemId(position: Int): Long {
-            return 0
-        }
-
-        override fun getItem(position: Int): Any {
-            return this.data[position]
-        }
+        override fun getCount(): Int =this.data.size
+        override fun getItemId(position: Int): Long = position.toLong()
+        override fun getItem(position: Int): Any = this.data[position]
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
             val view: View

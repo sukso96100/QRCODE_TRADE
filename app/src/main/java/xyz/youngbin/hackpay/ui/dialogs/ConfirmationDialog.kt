@@ -11,6 +11,7 @@ import xyz.youngbin.hackpay.R
 import xyz.youngbin.hackpay.ui.activities.PaymentActivity
 import xyz.youngbin.hackpay.ui.activities.PincodeActivity
 import xyz.youngbin.hackpay.ui.activities.ResultActivity
+import xyz.youngbin.hackpay.ui.adapter.AmountItem
 
 /**
  * Created by youngbin on 2017. 11. 22..
@@ -44,9 +45,9 @@ class ConfirmationDialog : BottomSheetDialogFragment() {
             activity.finish()
         }
         dialog.total.setOnClickListener{
-            var data = ArrayList<AmountDetailsDialog.AmountItem>()
-            data.add(AmountDetailsDialog.AmountItem("Hello", 50.0))
-            data.add(AmountDetailsDialog.AmountItem("World", 50.0))
+            var data = ArrayList<AmountItem>()
+            data.add(AmountItem("Hello", 50.0))
+            data.add(AmountItem("World", 50.0))
             val details = AmountDetailsDialog.newInstance(data)
             details.show(fragmentManager, "details")
         }
