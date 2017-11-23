@@ -35,7 +35,7 @@ class HistoryDetailsDialog: BottomSheetDialogFragment() {
 
         val details = arguments.getParcelableArrayList<AmountItem>("details")
         dialog.details.adapter = AmountItemAdapter(details, activity)
-        dialog.total.text = arguments.getDouble("total").toString()
+        dialog.total.text = arguments.getInt("total").toString()
         dialog.seller.text = arguments.getString("seller")
         dialog.datetime.text = arguments.getString("datetime")
         dialog.method.text = arguments.getString("method")

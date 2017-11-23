@@ -33,4 +33,5 @@
     <string name="credits_before">현재 잔액</string>
     <string name="credits_after">충전 또는 환급 후 잔액</string>
     <string name="credits_charge_or_refund">충전 또는 환급</string>
+    <string name="credits_charge_complete">충전 완료되었습니다.</string>
 </resources>

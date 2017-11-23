@@ -24,14 +24,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="@string/credits_charge" />
+                android:text="@string/credits_charge"
+                android:checked="true"/>
 
             <RadioButton
                 android:id="@+id/refund"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="@string/credits_refund" />
+                android:text="@string/credits_refund"
+                android:enabled="false"/>
         </LinearLayout>
     </RadioGroup>
 
@@ -95,7 +97,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/confirm"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
