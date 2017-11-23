@@ -12,7 +12,7 @@ import com.gun0912.tedpermission.TedPermission
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
-import xyz.youngbin.hackpay.HPAPI
+import network.HPAPI
 import xyz.youngbin.hackpay.R
 import xyz.youngbin.hackpay.ui.activities.seller.SellerProductListActivity
 import xyz.youngbin.hackpay.ui.activities.seller.SellerRequestPaymentActivity

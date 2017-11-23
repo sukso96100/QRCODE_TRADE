@@ -1,4 +1,4 @@
-package xyz.youngbin.hackpay
+package network
 
 import org.json.JSONObject
 
@@ -12,7 +12,7 @@ class HPAPI {
         fun get(uri: String, params: Map<String, String>): khttp.responses.Response? {
             try {
                 val headers = if (session != "") mapOf("Authorization" to session) else mapOf()
-                return khttp.get("$HOST/$uri", headers=headers, params=params)
+                return khttp.get("${HOST}/$uri", headers=headers, params=params)
             }catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -22,7 +22,7 @@ class HPAPI {
         fun post(uri: String, params: Map<String, String>, json: JSONObject): khttp.responses.Response? {
             try {
                 val headers = if (session != "") mapOf("Authorization" to session) else mapOf()
-                return khttp.post("$HOST/$uri", headers=headers, params=params, json=json)
+                return khttp.post("${HOST}/$uri", headers=headers, params=params, json=json)
             }catch (e: Exception) {
                 e.printStackTrace()
             }

@@ -7,7 +7,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
-import android.util.Log
 import android.view.View
 import android.view.Window
 import android.view.inputmethod.EditorInfo
@@ -15,7 +14,7 @@ import android.view.inputmethod.InputMethodManager
 import xyz.youngbin.hackpay.R
 import kotlinx.android.synthetic.main.activity_login.*
 import org.json.JSONObject
-import xyz.youngbin.hackpay.HPAPI
+import network.HPAPI
 import kotlin.concurrent.thread
 
 class LoginActivity : AppCompatActivity() {

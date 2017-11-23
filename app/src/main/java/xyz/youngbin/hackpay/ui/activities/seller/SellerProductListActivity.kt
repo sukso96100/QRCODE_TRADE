@@ -11,8 +11,7 @@ import android.widget.BaseAdapter
 import android.widget.Toast
 import kotlinx.android.synthetic.main.list_item_seller_product.view.*
 import org.json.JSONArray
-import org.json.JSONObject
-import xyz.youngbin.hackpay.HPAPI
+import network.HPAPI
 import xyz.youngbin.hackpay.R
 import kotlin.concurrent.thread
 
