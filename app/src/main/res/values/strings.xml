@@ -22,4 +22,8 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="activity_main_credits">잔액과 거래내역</string>
+    <string name="activity_main_pay">지금 결제</string>
+    <string name="credits_charge">충전</string>
+    <string name="credits_refund">환급</string>
 </resources>
