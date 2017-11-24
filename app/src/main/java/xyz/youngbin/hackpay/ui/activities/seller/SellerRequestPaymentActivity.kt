@@ -3,7 +3,6 @@ package xyz.youngbin.hackpay.ui.activities.seller
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -11,7 +10,6 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_seller_request_payment.*
-import kotlinx.android.synthetic.main.dialog_payment.*
 import kotlinx.android.synthetic.main.list_item_seller_request_product.view.*
 import org.json.JSONArray
 import org.json.JSONObject
