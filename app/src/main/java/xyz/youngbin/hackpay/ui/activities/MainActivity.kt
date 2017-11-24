@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             val permissions = listOf(android.Manifest.permission.CAMERA)
             val listener = object : PermissionListener {
                 override fun onPermissionGranted() {
-                    startActivity(Intent(this@MainActivity, ScannerActivity::class.java))
+                    startActivity(Intent(this@MainActivity, ScannerActivity2::class.java))
                 }
                 override fun onPermissionDenied(deniedPermissions: ArrayList<String>) {
                     Toast.makeText(this@MainActivity, "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show()

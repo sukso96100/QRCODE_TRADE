@@ -58,6 +58,9 @@
         <activity android:name=".ui.activities.seller.SellerPaymentWaitActivity"
             android:label="결제 대기"
             android:theme="@style/NavAppTheme" />
+        <activity android:name=".ui.activities.ScannerActivity2"
+            android:label="@string/title_activity_scanner"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
