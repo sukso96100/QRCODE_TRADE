@@ -7,7 +7,7 @@
 
 
     <TextView
-        android:id="@+id/profile_name"
+        android:id="@+id/pincode_header"
         android:layout_width="256dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -16,15 +16,22 @@
         android:fontFamily="sans-serif-thin"
         android:gravity="center"
         android:maxLines="1"
-        android:text="Pincode"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="34sp" />
+
+    <TextView
+        android:id="@+id/pincode_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pincode_header"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
 
     <com.andrognito.pinlockview.IndicatorDots
         android:id="@+id/indicator_dots"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/profile_name"
+        android:layout_below="@+id/pincode_comment"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
         app:dotFilledBackground="@color/colorPrimaryDark"

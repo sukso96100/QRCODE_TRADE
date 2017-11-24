@@ -1,14 +1,21 @@
 package xyz.youngbin.hackpay.ui.activities;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.andrognito.pinlockview.IndicatorDots;
 import com.andrognito.pinlockview.PinLockListener;
 import com.andrognito.pinlockview.PinLockView;
+
+import org.w3c.dom.Text;
 
 import xyz.youngbin.hackpay.R;
 
@@ -20,8 +27,13 @@ public class PincodeActivity extends Activity {
 
     public static final String TAG = "PinLockView";
 
+    private TextView header;
+    private TextView comment;
     private PinLockView mPinLockView;
     private IndicatorDots mIndicatorDots;
+    private int attemp=1;
+    private String mode;
+    String inputPincode="";
 
     public boolean checkUserPincode(String pincode){
         if(pincode.equals("11111")) {
@@ -38,13 +50,40 @@ public class PincodeActivity extends Activity {
         @Override
         public void onComplete(String pin)
         {
-            if(!checkUserPincode(pin))
-                mPinLockView.resetPinLockView();
-            else{
-                setResult(RESULT_OK);
-                finish();
+            if(mode.equals("check")) {
+                if (checkUserPincode(pin)) {
+                    setResult(RESULT_OK);
+                    finish();
+                } else {
+                    if (attemp == 5) {
+                        setResult(1);
+                        finish();
+                    }
+                    comment.setText(R.string.incorrect_pincode);
+                    attemp++;
+                    mPinLockView.resetPinLockView();
+                }
+                Log.d(TAG, "Pin complete: " + pin);
             }
-            Log.d(TAG, "Pin complete: " + pin);
+            else{  //setting
+                if(attemp==1){
+                    comment.setText(R.string.reinput_pincode);
+                    attemp++;
+                    inputPincode=pin;
+                    mPinLockView.resetPinLockView();
+                }
+                else{ //비밀번호 재입력했을때
+                    if(pin.equals(inputPincode)){
+                        //서버에 pin번호 전송
+                        finish();
+                    }
+                    else{
+                        comment.setText(R.string.incorrect_pincode);
+                        attemp=1;
+                        mPinLockView.resetPinLockView();
+                    }
+                }
+            }
         }
 
         @Override
@@ -63,6 +102,8 @@ public class PincodeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pincode);
 
+        header=(TextView) findViewById(R.id.pincode_header);
+        comment=(TextView) findViewById(R.id.pincode_comment);
         mPinLockView = (PinLockView) findViewById(R.id.pin_lock_view);
         mIndicatorDots = (IndicatorDots) findViewById(R.id.indicator_dots);
 
@@ -73,6 +114,16 @@ public class PincodeActivity extends Activity {
 
         mPinLockView.setPinLength(5);
 
-        mIndicatorDots.setIndicatorType(IndicatorDots.IndicatorType.FILL);
+        mIndicatorDots.setIndicatorType(IndicatorDots.IndicatorType.FILL_WITH_ANIMATION);
+
+        Intent intent=getIntent();
+        mode=intent.getStringExtra("mode");
+        if(mode.equals("check")){
+            header.setText("Pin 확인");
+        }
+        else{
+            header.setText("Pin 설정");
+        }
+
     }
 }
