@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -101,6 +102,7 @@ public class PincodeActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pincode);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
 
         header=(TextView) findViewById(R.id.pincode_header);
         comment=(TextView) findViewById(R.id.pincode_comment);
@@ -125,5 +127,13 @@ public class PincodeActivity extends Activity {
             header.setText("Pin 설정");
         }
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case android.R.id.home: onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

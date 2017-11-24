@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="xyz.youngbin.hackpay">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -32,7 +33,7 @@
         <activity android:name=".ui.activities.PaymentActivity"
             android:theme="@style/NavAppTheme" />
         <activity android:name=".ui.activities.PincodeActivity"
-            android:theme="@style/NavAppTheme.NoActionBar" />
+            android:theme="@style/NavAppTheme" />
         <activity android:name=".ui.activities.ResultActivity"
             android:theme="@style/NavAppTheme" />
         <activity
@@ -43,8 +44,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.activities.MainActivity"/>
         </activity>
-
-
+        <activity android:name=".ui.activities.ChargeOrRefundActivity"
+            android:label="@string/credits_charge_or_refund"/>
         <activity android:name=".ui.activities.seller.SellerProductListActivity"
             android:label="상품 목록"
             android:theme="@style/NavAppTheme" />
