@@ -8,6 +8,8 @@ import kotlinx.android.synthetic.main.activity_seller_payment_wait.*
 import xyz.youngbin.hackpay.R
 
 class SellerPaymentWaitActivity: Activity() {
+    private var products = listOf<Map<String, String>>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seller_payment_wait)
@@ -15,6 +17,9 @@ class SellerPaymentWaitActivity: Activity() {
 
         val qr_url = intent.getStringExtra("qr_url")
         Picasso.with(this).load(qr_url).into(imageView)
+
+        totalPriceLabel.text = intent.getIntExtra("totalPrice", 0).toString()
+        products = intent.getSerializableExtra("products") as List<Map<String, String>>
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {

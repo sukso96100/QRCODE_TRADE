@@ -14,8 +14,9 @@
     <!-- Strings related to login -->
     <string name="prompt_id">아이디</string>
     <string name="prompt_password">비밀번호 </string>
-    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_up">회원가입</string>
     <string name="action_sign_in_short">로그인</string>
+    <string name="submit_button">전송</string>
     <string name="error_invalid_email">아이디가 너무 짧습니다.</string>
     <string name="error_invalid_password">패스워드가 너무 짧습니다.</string>
     <string name="error_incorrect_password">패스워드가 일치하지 않습니다.</string>
@@ -25,6 +26,8 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="incorrect_pincode">Pin번호가 일치하지 않습니다.</string>
+    <string name="reinput_pincode">한번 더 입력해주세요</string>
     <string name="action_product_add">상품 추가</string>
     <string name="activity_main_credits">잔액과 거래내역</string>
     <string name="activity_main_pay">지금 결제</string>
