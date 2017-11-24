@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.support.design.widget.BottomSheetDialog
 import android.support.design.widget.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.dialog_amount.*
-import kotlinx.android.synthetic.main.list_header_history_details.view.*
+import kotlinx.android.synthetic.main.dialog_history_details.*
 import xyz.youngbin.hackpay.R
 import xyz.youngbin.hackpay.ui.adapter.AmountItem
 import xyz.youngbin.hackpay.ui.adapter.AmountItemAdapter
@@ -15,14 +15,14 @@ import xyz.youngbin.hackpay.ui.adapter.AmountItemAdapter
  */
 class HistoryDetailsDialog: BottomSheetDialogFragment() {
     companion object {
-        fun newInstance(seller: String, method: String, total: Double,
-                        datetime: String, details: ArrayList<AmountItem>): ConfirmationDialog {
-            val dialog = ConfirmationDialog()
+        fun newInstance(seller: String, method: String, total: Int,
+                        datetime: String, details: ArrayList<AmountItem>): HistoryDetailsDialog {
+            val dialog = HistoryDetailsDialog()
             val args = Bundle()
             args.putString("seller",seller)
             args.putString("method",method)
             args.putString("datetime", datetime)
-            args.putDouble("total",total)
+            args.putInt("total",total)
             args.putParcelableArrayList("details", details)
             dialog.arguments = args
             return dialog
@@ -30,19 +30,15 @@ class HistoryDetailsDialog: BottomSheetDialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialog = BottomSheetDialog(activity)
-        dialog.setContentView(R.layout.layout_listview_only)
+        var dialog = BottomSheetDialog(activity)
+        dialog.setContentView(R.layout.dialog_history_details)
 
         val details = arguments.getParcelableArrayList<AmountItem>("details")
-        dialog.listView.adapter = AmountItemAdapter(details, activity)
-
-        val header = layoutInflater.inflate(R.layout.list_header_history_details, null)
-        header.total.text = arguments.getDouble("total").toString()
-        header.seller.text = arguments.getString("seller")
-        header.datetime.text = arguments.getString("datetime")
-        header.method.text = arguments.getString("method")
-
-        dialog.listView.addHeaderView(header)
+        dialog.details.adapter = AmountItemAdapter(details, activity)
+        dialog.total.text = arguments.getInt("total").toString()
+        dialog.seller.text = arguments.getString("seller")
+        dialog.datetime.text = arguments.getString("datetime")
+        dialog.method.text = arguments.getString("method")
 
         return dialog
     }

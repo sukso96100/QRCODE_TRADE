@@ -45,9 +45,10 @@
             android:padding="16dp"
             android:background="?android:selectableItemBackground">
             <TextView
+                android:id="@+id/creditsBalanceLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="100000 KRW"
+                android:text="0 KRW"
                 android:layout_gravity="center_horizontal"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Display1"
                 android:padding="8dp"/>

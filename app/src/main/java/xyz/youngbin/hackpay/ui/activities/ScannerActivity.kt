@@ -9,6 +9,7 @@ import com.google.zxing.Result
 import kotlinx.android.synthetic.main.activity_scanner.*
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 import xyz.youngbin.hackpay.R
+import xyz.youngbin.hackpay.network.HPAPI
 import xyz.youngbin.hackpay.ui.dialogs.ConfirmationDialog
 
 class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler, DialogInterface.OnDismissListener{
@@ -22,10 +23,17 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler, Dia
     private lateinit var mScannerView: ZXingScannerView
 
     override fun handleResult(rawResult: Result?) {
-        mScannerView.stopCamera()
-        Toast.makeText(this, rawResult!!.text, Toast.LENGTH_LONG).show()
-        val myDialog = ConfirmationDialog.newInstance(rawResult.text, "cash", 100.0)
-        myDialog.show(supportFragmentManager,"dialog")
+        if(isValidQrContent(rawResult!!.text)){
+            HPAPI.get()
+            mScannerView.stopCamera()
+            val myDialog = ConfirmationDialog.newInstance(rawResult.text, "cash", 100.0)
+            myDialog.show(supportFragmentManager,"dialog")
+        }else{
+            desc.text = getString(R.string.activity_qr_error)
+            this.onResume()
+        }
+
+
 
     }
 
@@ -48,6 +56,11 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler, Dia
     override fun onPause() {
         super.onPause()
         mScannerView.stopCamera()
+    }
+
+    fun isValidQrContent(qrContent: String): Boolean{
+        val regex = "hackpay:\\/\\/[0-9]+-[0-9a-zA-Z]{8}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]{12}"
+        return qrContent.matches(Regex(regex))
     }
 
 }

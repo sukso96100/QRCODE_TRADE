@@ -9,8 +9,6 @@ import android.support.design.widget.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.dialog_payment.*
 import xyz.youngbin.hackpay.R
 import xyz.youngbin.hackpay.ui.activities.PaymentActivity
-import xyz.youngbin.hackpay.ui.activities.PincodeActivity
-import xyz.youngbin.hackpay.ui.activities.ResultActivity
 import xyz.youngbin.hackpay.ui.adapter.AmountItem
 
 /**

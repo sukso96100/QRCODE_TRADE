@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import xyz.youngbin.hackpay.network.HPAPI
 import xyz.youngbin.hackpay.R
 import xyz.youngbin.hackpay.ui.activities.seller.SellerProductListActivity
 import xyz.youngbin.hackpay.ui.activities.seller.SellerRequestPaymentActivity
@@ -21,6 +23,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+
+        creditsBalanceLabel.text = "${intent.getIntExtra("balance", 0)} KRW"
 
         payment.setOnClickListener{
             val permissions = listOf(android.Manifest.permission.CAMERA)
@@ -41,13 +45,17 @@ class MainActivity : AppCompatActivity() {
         credits.setOnClickListener {
             startActivity(Intent(this, CreditsAndHistoryActivity::class.java))
         }
-        store.setOnClickListener {
-            startActivity(Intent(this, SellerProductListActivity::class.java))
-        }
-        storeReqProduct.setOnClickListener {
-            startActivity(Intent(this, SellerRequestPaymentActivity::class.java))
-        }
 
+        if (HPAPI.seller_id == null) {
+            store.visibility = View.GONE
+        }else {
+            store.setOnClickListener {
+                startActivity(Intent(this, SellerProductListActivity::class.java))
+            }
+            storeReqProduct.setOnClickListener {
+                startActivity(Intent(this, SellerRequestPaymentActivity::class.java))
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
