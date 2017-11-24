@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.support.design.widget.BottomSheetDialog
 import android.support.design.widget.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.dialog_payment.*
+import org.json.JSONArray
 import xyz.youngbin.hackpay.R
 import xyz.youngbin.hackpay.ui.activities.PaymentActivity
 import xyz.youngbin.hackpay.ui.adapter.AmountItem
@@ -17,12 +18,13 @@ import xyz.youngbin.hackpay.ui.adapter.AmountItem
 class ConfirmationDialog : BottomSheetDialogFragment() {
 
     companion object {
-        fun newInstance(seller: String, method: String, total: Double): ConfirmationDialog {
+        fun newInstance(seller: String, method: String, total: Double, details: ArrayList<AmountItem>): ConfirmationDialog {
             val dialog = ConfirmationDialog()
             val args = Bundle()
             args.putString("seller",seller)
             args.putString("method",method)
             args.putDouble("total",total)
+            args.putParcelableArrayList("details", details)
             dialog.arguments = args
             return dialog
         }
@@ -43,10 +45,7 @@ class ConfirmationDialog : BottomSheetDialogFragment() {
             activity.finish()
         }
         dialog.total.setOnClickListener{
-            var data = ArrayList<AmountItem>()
-            data.add(AmountItem("Hello", 50.0))
-            data.add(AmountItem("World", 50.0))
-            val details = AmountDetailsDialog.newInstance(data)
+            val details = AmountDetailsDialog.newInstance(arguments.getParcelableArrayList("details"))
             details.show(fragmentManager, "details")
         }
         return dialog

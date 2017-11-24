@@ -26,8 +26,8 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler, Dia
         if(isValidQrContent(rawResult!!.text)){
 //            HPAPI.get()
             mScannerView.stopCamera()
-            val myDialog = ConfirmationDialog.newInstance(rawResult.text, "cash", 100.0)
-            myDialog.show(supportFragmentManager,"dialog")
+//            val myDialog = ConfirmationDialog.newInstance(rawResult.text, "cash", 100.0)
+//            myDialog.show(supportFragmentManager,"dialog")
         }else{
             desc.text = getString(R.string.activity_qr_error)
             this.onResume()

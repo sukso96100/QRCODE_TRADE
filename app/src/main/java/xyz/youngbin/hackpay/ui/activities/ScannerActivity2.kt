@@ -10,6 +10,7 @@ import com.journeyapps.barcodescanner.BarcodeResult
 import kotlinx.android.synthetic.main.activity_scanner2.*
 import xyz.youngbin.hackpay.R
 import xyz.youngbin.hackpay.network.HPAPI
+import xyz.youngbin.hackpay.ui.adapter.AmountItem
 import xyz.youngbin.hackpay.ui.dialogs.ConfirmationDialog
 import kotlin.concurrent.thread
 
@@ -37,10 +38,19 @@ ScannerActivity2 : AppCompatActivity(), DialogInterface.OnDismissListener {
                         }else if (res.statusCode != 200) {
                             scanner.setStatusText(getString(R.string.error_api_etc))
                         }else {
+                            var details = ArrayList<AmountItem>()
+                            val arr = res.jsonObject.getJSONArray("products")
+                            for(i in 0..arr.length()-1){
+                                details.add(AmountItem(
+                                        arr.getJSONObject(i).getString("product_name"),
+                                        arr.getJSONObject(i).getInt("count").toDouble()))
+                            }
                             val myDialog = ConfirmationDialog.newInstance(
                                     res.jsonObject.getJSONObject("seller_info").getString("name"),
                                     "cash",
-                                    res.jsonObject.getJSONObject("trade_info").getInt("total_price").toDouble())
+                                    res.jsonObject.getJSONObject("trade_info").getInt("total_price").toDouble(),
+                                    details
+                                    )
                             myDialog.show(supportFragmentManager,"dialog")
                         }
                     }
