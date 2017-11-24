@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">HackPay</string>
     <string name="action_settings">Settings</string>
-    <string name="activity_qr_desc">Scan QR Code to pay</string>
+    <string name="activity_qr_desc">QR코드를 스캔하여 결제하세요.</string>
+    <string name="activity_qr_error">올바른 QR 코드가 아닙니다. 다시 스캔하세요.</string>
     <string name="title_activity_scanner">ScannerActivity</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="dialog_payment_title">Payment Details</string>
