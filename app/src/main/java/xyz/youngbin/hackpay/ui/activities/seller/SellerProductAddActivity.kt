@@ -1,7 +1,6 @@
 package xyz.youngbin.hackpay.ui.activities.seller
 
 import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast

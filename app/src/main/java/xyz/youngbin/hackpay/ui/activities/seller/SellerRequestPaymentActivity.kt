@@ -17,6 +17,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 import xyz.youngbin.hackpay.network.HPAPI
 import xyz.youngbin.hackpay.R
+import java.io.Serializable
 import kotlin.concurrent.thread
 
 class SellerRequestPaymentActivity : Activity() {
@@ -60,11 +61,20 @@ class SellerRequestPaymentActivity : Activity() {
             R.id.action_done -> {
                 thread {
                     val purchaseProducts = mutableListOf<Map<String, String>>()
+                    var totalPrice = 0
                     for (i in 0 until products.length()) {
                         val product = products.getJSONObject(i)
-                        if (product.getInt("count") > 0) {
-                            purchaseProducts.add(mapOf("id" to product.getString("id"), "count" to product.getString("count")))
+                        val productCount = product.getInt("count")
+                        if (productCount > 0) {
+                            totalPrice += product.getInt("price") * productCount
+                            purchaseProducts.add(mapOf("id" to product.getString("id"), "count" to productCount.toString()))
                         }
+                    }
+                    if (purchaseProducts.count() == 0) {
+                        runOnUiThread {
+                            Toast.makeText(this@SellerRequestPaymentActivity, "상품을 선택해주세요.", Toast.LENGTH_LONG).show()
+                        }
+                        return@thread
                     }
                     val json = JSONObject()
                     json.put("purchase_products", JSONArray(purchaseProducts))
@@ -92,6 +102,8 @@ class SellerRequestPaymentActivity : Activity() {
                                 runOnUiThread {
                                     val pushIntent = Intent(this@SellerRequestPaymentActivity, SellerPaymentWaitActivity::class.java)
                                     pushIntent.putExtra("qr_url", qr_rj.getString("url"))
+                                    pushIntent.putExtra("totalPrice", totalPrice)
+                                    pushIntent.putExtra("products", purchaseProducts as Serializable)
                                     startActivity(pushIntent)
                                 }
                             }
